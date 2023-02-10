@@ -1,0 +1,31 @@
+============================
+Dockerize a MongoDB database
+============================
+
+--Pull the Mongo image from Docker hub
+docker pull mongo:latest
+
+docker images
+
+--Run the Mongo container
+docker run -d --name mongo-container mongo:latest
+
+docker ps
+
+--Execute the Mongo terminal
+docker exec -it mongo-container bash
+
+mongosh
+
+show dbs;
+
+--Create a database to store customer details
+use customer_db;
+
+--Create a collection called Customers
+db.createCollection("Customers")
+
+--Insert customer name, age, address, phone number, and email into the Customers collection.
+db.customer.insertOne({"Name": "Tom", "Age": 21, "Address":"Main Dave Street", "PhoneNo": 8452037892, "email": "tom@gmail.com"})
+
+db.customer.find().pretty()
